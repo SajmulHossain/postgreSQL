@@ -292,3 +292,39 @@ SELECT coalesce(email, 'Not provided') from students;
 SELECT * from students WHERE country NOT IN('Brazil', 'Argentina');
 
 SELECT * from students WHERE age BETWEEN 18 AND 20;
+
+-- name start with a
+SELECT * FROM students WHERE first_name LIKE '%a';
+
+-- name end with A  -- * case sensetive
+SELECT * FROM students WHERE first_name LIKE 'A%';
+
+
+-- at first two character then 'a' then anything
+SELECT * FROM students 
+    WHERE first_name LIKE '__a%';
+
+-- start with any two characters and ends with 'a'
+SELECT * FROM students 
+    WHERE first_name LIKE '__a';
+
+
+-- !here like is case sensetive, ILIKE is case insensetive
+SELECT * FROM students 
+WHERE first_name ILIKE 'a%';
+
+
+-- ? limit and offset
+
+SELECT * FROM students LIMIT 5 OFFSET 2;
+
+-- !full data table will delete;
+
+DELETE FROM students;
+
+DELETE FROM students
+WHERE grade = 'B+';
+
+SELECT * FROM students;
+
+UPDATE students SET email = 'sajmul@gmail.com' WHERE student_id = 21;
