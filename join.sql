@@ -32,3 +32,7 @@ SELECT * FROM post as p RIGHT OUTER JOIN "user" as u on p.user_id = u.id;
 
 SELECT * FROM "user" LEFT JOIN post on post.user_id = "user".id;
 INSERT INTO post (id, title, user_id) VALUES (9, 'this is a post title', NULL);
+
+SELECT *
+FROM post as p
+    FULL OUTER JOIN "user" as u on p.user_id = u.id;
