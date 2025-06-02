@@ -54,3 +54,12 @@ INSERT INTO employees (employee_name, department_name, salary, hire_date) VALUES
 SELECT max(salary) FROM employees WHERE department_name = 'HR';
 
 SELECT * FROM employees WHERE salary > (SELECT max(salary) FROM employees WHERE department_name = 'HR');
+
+SELECT *, (SELECT sum(salary) FROM employees) FROM employees;
+
+SELECT department_name, sum(salary) FROM employees GROUP BY department_name;
+
+SELECT * FROM (SELECT department_name, sum(salary) as sum_of_salary
+FROM employees
+GROUP BY
+    department_name);
